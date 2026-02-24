@@ -94,10 +94,10 @@ const Scheduler = () => {
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-            tl.to('.v-cursor', { x: 120, y: 35, duration: 1.2, ease: 'power2.inOut' })
+            tl.to('.v-cursor', { x: 220, y: 35, duration: 1.2, ease: 'power2.inOut' })
                 .to('.v-cursor', { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 })
                 .to('.day-cell-target', { backgroundColor: '#CC5833', color: '#F2F0E9', duration: 0 }, "-=0.1")
-                .to('.v-cursor', { x: 200, y: 95, duration: 1.2, ease: 'power2.inOut', delay: 0.4 })
+                .to('.v-cursor', { x: 375, y: 95, duration: 1.2, ease: 'power2.inOut', delay: 0.4 })
                 .to('.v-cursor', { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 })
                 .to('.btn-save-ai', { backgroundColor: '#CC5833', color: '#F2F0E9', duration: 0 }, "-=0.1")
                 .to('.v-cursor', { opacity: 0, duration: 0.2, delay: 0.8 })
@@ -164,7 +164,7 @@ export default function Features() {
                             <Code2 size={24} strokeWidth={1.5} />
                         </div>
                         <h4 className="font-sans font-bold text-2xl tracking-tight mb-4 text-dark">Web & Apps</h4>
-                        <p className="font-mono text-[13px] text-dark/60 leading-relaxed mb-6">Full-stack web applications and responsive sites. Modern front-end architectures paired with scalable back-ends, built to perform.</p>
+                        <p className="font-mono text-[13px] text-dark/60 leading-relaxed mb-6">Websites, web apps, and mobile apps — from WordPress and e-commerce to full-stack builds with modern front-ends and scalable back-ends.</p>
                     </div>
                     <Typewriter />
                 </div>
