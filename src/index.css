@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F2F0E9;
+  --primary: #2E4036;
+  --accent: #CC5833;
+  --dark: #1A1A1A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--dark);
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+/* Global noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+}
+
+/* Base resets & smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #F2F0E9;
+}
+
+/* Utility to clip backgrounds for magnetic buttons */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-magnetic:hover {
+  transform: scale(1.03) translateY(-1px);
+}
+.btn-magnetic .btn-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+  background-color: var(--primary);
+}
+.btn-magnetic:hover .btn-bg {
+  transform: translateY(0);
+}
