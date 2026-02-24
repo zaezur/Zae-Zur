@@ -92,12 +92,24 @@ const Scheduler = () => {
     const container = useRef(null);
 
     useEffect(() => {
+        const el = container.current;
+        const box = el.getBoundingClientRect();
+        const dayCell = el.querySelector('.day-cell-target');
+        const btn = el.querySelector('.btn-save-ai');
+        const dayRect = dayCell.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+
+        const dayX = dayRect.left + dayRect.width / 2 - box.left;
+        const dayY = dayRect.top + dayRect.height / 2 - box.top;
+        const btnX = btnRect.left + btnRect.width / 2 - box.left;
+        const btnY = btnRect.top + btnRect.height / 2 - box.top;
+
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-            tl.to('.v-cursor', { x: 220, y: 35, duration: 1.2, ease: 'power2.inOut' })
+            tl.to('.v-cursor', { x: dayX, y: dayY, duration: 1.2, ease: 'power2.inOut' })
                 .to('.v-cursor', { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 })
                 .to('.day-cell-target', { backgroundColor: '#CC5833', color: '#F2F0E9', duration: 0 }, "-=0.1")
-                .to('.v-cursor', { x: 375, y: 95, duration: 1.2, ease: 'power2.inOut', delay: 0.4 })
+                .to('.v-cursor', { x: btnX, y: btnY, duration: 1.2, ease: 'power2.inOut', delay: 0.4 })
                 .to('.v-cursor', { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 })
                 .to('.btn-save-ai', { backgroundColor: '#CC5833', color: '#F2F0E9', duration: 0 }, "-=0.1")
                 .to('.v-cursor', { opacity: 0, duration: 0.2, delay: 0.8 })
